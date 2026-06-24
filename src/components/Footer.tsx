@@ -8,7 +8,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Sparkles className="w-6 h-6 text-rose-300" />
-              <span className="font-serif text-2xl font-bold">Eloriane</span>
+              <span className="font-serif text-2xl font-bold">Elloriane</span>
             </div>
             <p className="text-rose-200 text-sm leading-relaxed">
               Une boutique exclusive dédiée à votre beauté et votre élégance.
@@ -42,14 +42,14 @@ export default function Footer() {
                 className="flex items-center gap-2 text-rose-200 hover:text-white transition-colors"
               >
                 <Instagram size={20} />
-                <span>@eloriane</span>
+                <span>@elloriane</span>
               </a>
               <a
                 href="#"
                 className="flex items-center gap-2 text-rose-200 hover:text-white transition-colors"
               >
                 <Mail size={20} />
-                <span>contact@eloriane.com</span>
+                <span>contact@elloriane.com</span>
               </a>
             </div>
           </div>
@@ -57,7 +57,7 @@ export default function Footer() {
 
         <div className="border-t border-rose-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-rose-300 text-sm">
-            © 2026 Eloriane. Tous droits réservés.
+            © 2026 Elloriane. Tous droits réservés.
           </p>
           <p className="flex items-center gap-1 text-rose-300 text-sm">
             Fait avec{" "}

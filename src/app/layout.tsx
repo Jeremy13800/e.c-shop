@@ -13,7 +13,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Eloriane - Boutique Exclusive",
+  title: "Elloriane - Boutique Exclusive",
   description: "Découvrez notre collection exclusive de bijoux et lingerie",
 };
 

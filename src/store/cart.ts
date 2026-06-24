@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { CartItem, Product } from '@/types/product';
+import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
+import { CartItem, Product } from "@/types/product";
 
 interface CartStore {
   items: CartItem[];
@@ -25,7 +25,7 @@ export const useCart = create<CartStore>()(
             items: items.map((item) =>
               item.id === product.id
                 ? { ...item, quantity: item.quantity + 1 }
-                : item
+                : item,
             ),
           });
         } else {
@@ -42,7 +42,7 @@ export const useCart = create<CartStore>()(
         }
         set({
           items: get().items.map((item) =>
-            item.id === productId ? { ...item, quantity } : item
+            item.id === productId ? { ...item, quantity } : item,
           ),
         });
       },
@@ -50,7 +50,7 @@ export const useCart = create<CartStore>()(
       getTotal: () => {
         return get().items.reduce(
           (total, item) => total + item.price * item.quantity,
-          0
+          0,
         );
       },
       getTotalItems: () => {
@@ -58,7 +58,17 @@ export const useCart = create<CartStore>()(
       },
     }),
     {
-      name: 'cart-storage',
-    }
-  )
+      name: "cart-storage",
+      storage: createJSONStorage(() => {
+        if (typeof window !== "undefined") {
+          return localStorage;
+        }
+        return {
+          getItem: () => null,
+          setItem: () => {},
+          removeItem: () => {},
+        };
+      }),
+    },
+  ),
 );

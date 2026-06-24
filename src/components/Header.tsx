@@ -11,7 +11,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2 group">
           <Sparkles className="w-6 h-6 text-rose-500 group-hover:rotate-12 transition-transform" />
           <span className="font-serif text-2xl font-bold bg-gradient-to-r from-rose-600 to-rose-400 bg-clip-text text-transparent">
-            Eloriane
+            Elloriane
           </span>
         </Link>
         <nav className="flex items-center gap-8">
