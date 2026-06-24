@@ -1,6 +1,6 @@
 <div align="center">
 
-# ✨ Eloriane Shop
+# ✨ E.C Shop
 
 **A modern, elegant e-commerce storefront with feminine design aesthetics**
 
