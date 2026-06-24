@@ -14,13 +14,20 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [isLiked, setIsLiked] = useState(false);
 
   return (
-    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-rose-100">
-      <div className="aspect-square bg-gradient-to-br from-rose-50 to-rose-100 relative overflow-hidden">
+    <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-amber-100">
+      <div className="aspect-square bg-gradient-to-br from-amber-50 to-rose-50 relative overflow-hidden">
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
+        {product.badge && (
+          <div className="absolute top-4 left-4">
+            <span className="bg-gradient-to-r from-amber-500 to-rose-500 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
+              {product.badge}
+            </span>
+          </div>
+        )}
         <button
           onClick={() => setIsLiked(!isLiked)}
           className="absolute top-4 right-4 p-2 bg-white/80 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-sm"
@@ -28,7 +35,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <Heart
             size={20}
             className={
-              isLiked ? "fill-rose-500 text-rose-500" : "text-gray-600"
+              isLiked ? "fill-amber-500 text-amber-500" : "text-gray-600"
             }
           />
         </button>
@@ -39,7 +46,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <h3 className="font-serif font-semibold text-lg text-gray-900">
             {product.name}
           </h3>
-          <span className="font-serif text-xl font-bold text-rose-600">
+          <span className="font-serif text-xl font-bold bg-gradient-to-r from-amber-600 to-rose-600 bg-clip-text text-transparent">
             {product.price}€
           </span>
         </div>
@@ -48,7 +55,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </p>
         <button
           onClick={() => addItem(product)}
-          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-rose-500 to-rose-600 text-white px-4 py-3 rounded-xl hover:from-rose-600 hover:to-rose-700 transition-all duration-300 shadow-md hover:shadow-lg font-medium"
+          className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-rose-500 text-white px-4 py-3 rounded-xl hover:from-amber-600 hover:to-rose-600 transition-all duration-300 shadow-md hover:shadow-lg font-medium"
         >
           <ShoppingBag size={18} />
           Ajouter au panier
