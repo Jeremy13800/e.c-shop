@@ -1,20 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display } from "next/font/google";
+import { Cormorant_Garamond, Lato } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["300", "400", "500", "600", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
 });
 
-const playfair = Playfair_Display({
+const lato = Lato({
   subsets: ["latin"],
-  variable: "--font-playfair",
+  weight: ["300", "400", "700"],
+  variable: "--font-lato",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Les Secrets d'Elloriane - Boutique Exclusive",
-  description: "Découvrez notre collection exclusive de bijoux et lingerie",
+  title: "Les Secrets d'Elloriane — Boutique Exclusive",
+  description:
+    "Bijoux, lingerie et accessoires de luxe inspirés de la Méditerranée. Marseille • Italie • Malte.",
+  keywords: ["bijoux luxe", "lingerie", "Marseille", "Elloriane", "boutique exclusive"],
 };
 
 export default function RootLayout({
@@ -23,12 +30,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fr">
-      <body
-        className={`${inter.variable} ${playfair.variable} font-sans antialiased bg-gradient-to-br from-rose-50 via-white to-rose-50`}
-      >
-        {children}
-      </body>
+    <html lang="fr" className={`${cormorant.variable} ${lato.variable}`}>
+      <body className="font-lato antialiased bg-[#FAF7F2]">{children}</body>
     </html>
   );
 }

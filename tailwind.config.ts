@@ -9,36 +9,35 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        rose: {
-          50: "#fff1f2",
-          100: "#ffe4e6",
-          200: "#fecdd3",
-          300: "#fda4af",
-          400: "#fb7185",
-          500: "#f43f5e",
-          600: "#e11d48",
-          700: "#be123c",
-          800: "#9f1239",
-          900: "#881337",
-        },
         gold: {
-          50: "#fefce8",
-          100: "#fef9c3",
-          200: "#fef08a",
-          300: "#fde047",
-          400: "#facc15",
-          500: "#eab308",
-          600: "#ca8a04",
-          700: "#a16207",
-          800: "#854d0e",
-          900: "#713f12",
+          DEFAULT: "#C9A96E",
+          light:   "#E8D5A3",
+          dark:    "#9A7A45",
         },
+        cream: {
+          DEFAULT: "#FAF7F2",
+          dark:    "#F0EAE0",
+        },
+        velvet: {
+          DEFAULT: "#111111",
+          soft:    "#1E1E1E",
+        },
+        "rose-powder": "#F2D5D5",
+        "rose-deep":   "#C8768A",
       },
       fontFamily: {
-        serif: ["var(--font-playfair)", "serif"],
-        sans: ["var(--font-inter)", "sans-serif"],
+        cormorant: ["var(--font-cormorant)", "Georgia", "serif"],
+        lato:      ["var(--font-lato)", "system-ui", "sans-serif"],
+        // keep legacy aliases
+        serif: ["var(--font-cormorant)", "Georgia", "serif"],
+        sans:  ["var(--font-lato)", "system-ui", "sans-serif"],
+      },
+      letterSpacing: {
+        widest: "0.25em",
+        ultra:  "0.35em",
+      },
+      transitionDuration: {
+        "400": "400ms",
       },
     },
   },

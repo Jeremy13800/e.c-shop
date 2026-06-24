@@ -2,162 +2,321 @@ import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
 import { products } from "@/data/products";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#FAF7F2]">
       <Header />
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="relative h-[750px] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-100 via-rose-50 to-blue-50 animate-gradient" />
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1555400038-63f5ba517a47?w=1920&q=80')] bg-cover bg-center opacity-10" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/50 via-transparent to-transparent" />
-          <div className="relative container mx-auto px-4 text-center">
-            <div className="flex items-center justify-center gap-3 mb-8 animate-fade-in">
-              <Sparkles className="w-12 h-12 text-amber-500 animate-pulse" />
-              <Sparkles className="w-10 h-10 text-rose-400 animate-pulse delay-100" />
-              <Sparkles className="w-12 h-12 text-blue-400 animate-pulse delay-200" />
+
+        {/* ── HERO ─────────────────────────────────────────────── */}
+        <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+
+          {/* Background layers */}
+          <div className="absolute inset-0 bg-[#F0EAE0]" />
+          <div
+            className="absolute inset-0 opacity-[0.07]"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1920&q=80')`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+          {/* Vignette */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FAF7F2]/80 via-transparent to-[#FAF7F2]/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#FAF7F2] via-transparent to-transparent" />
+
+          {/* Decorative vertical line */}
+          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[rgba(201,169,110,0.3)] to-transparent hidden lg:block" />
+
+          {/* Floating ornament */}
+          <div
+            className="absolute right-[8%] top-1/2 -translate-y-1/2 hidden xl:block"
+            style={{ animation: "float 6s ease-in-out infinite" }}
+          >
+            <div className="w-48 h-48 border border-[rgba(201,169,110,0.2)] rounded-full flex items-center justify-center">
+              <div className="w-36 h-36 border border-[rgba(201,169,110,0.15)] rounded-full flex items-center justify-center">
+                <div
+                  className="font-cormorant text-6xl font-light"
+                  style={{
+                    background: "linear-gradient(135deg, #9A7A45, #C9A96E, #E8D5A3)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  E
+                </div>
+              </div>
             </div>
-            <h1 className="font-serif text-6xl md:text-8xl font-bold bg-gradient-to-r from-amber-600 via-rose-500 to-blue-500 bg-clip-text text-transparent mb-6 animate-slide-up">
-              Les Secrets d'Elloriane
-            </h1>
-            <p className="text-amber-700 text-xl md:text-2xl font-medium mb-4 tracking-widest uppercase animate-slide-up delay-100">
-              ✨ Marseille • Italo-Maltaise ✨
-            </p>
-            <p className="text-gray-700 text-xl md:text-2xl max-w-3xl mx-auto mb-10 font-light leading-relaxed animate-slide-up delay-200">
-              L'élégance méditerranéenne à son apogée. Une collection exclusive
-              pour sublimer votre beauté naturelle.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up delay-300">
-              <a
-                href="#collection"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-rose-500 text-white px-10 py-4 rounded-full hover:from-amber-600 hover:to-rose-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 font-medium text-lg"
-              >
-                Découvrir la collection
-                <ArrowRight size={20} />
-              </a>
-              <a
-                href="#about"
-                className="inline-flex items-center gap-2 border-2 border-amber-500 text-amber-700 px-10 py-4 rounded-full hover:bg-amber-50 transition-all duration-300 font-medium text-lg"
-              >
-                Notre histoire
-              </a>
+          </div>
+
+          {/* Content */}
+          <div className="relative max-w-7xl mx-auto px-6 py-24 lg:py-32">
+            <div className="max-w-2xl">
+
+              {/* Eyebrow */}
+              <div className="flex items-center gap-4 mb-10 animate-fade-in">
+                <div className="divider-gold-left" style={{ background: "linear-gradient(90deg, #C9A96E, transparent)" }} />
+                <span className="font-lato text-[10px] tracking-[0.35em] uppercase text-[#C9A96E]">
+                  Marseille · Italie · Malte
+                </span>
+              </div>
+
+              {/* Main title */}
+              <h1 className="font-cormorant font-light leading-[1.05] mb-8 animate-slide-up">
+                <span className="block text-6xl md:text-7xl lg:text-8xl text-[#2A2A2A]">
+                  Les Secrets
+                </span>
+                <span
+                  className="block text-6xl md:text-7xl lg:text-8xl italic"
+                  style={{
+                    background: "linear-gradient(135deg, #9A7A45 0%, #C9A96E 50%, #E8D5A3 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  d&apos;Elloriane
+                </span>
+              </h1>
+
+              {/* Tagline */}
+              <p className="font-lato text-[#7A7A7A] text-lg font-light leading-relaxed mb-12 max-w-lg animate-slide-up delay-100">
+                L&apos;élégance méditerranéenne à son apogée — une collection exclusive
+                de bijoux, lingerie et accessoires pour sublimer votre beauté naturelle.
+              </p>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row items-start gap-4 animate-slide-up delay-200">
+                <a href="#collection" className="btn-primary">
+                  Découvrir la collection
+                  <ArrowRight size={14} />
+                </a>
+                <a href="#about" className="btn-outline-gold">
+                  Notre histoire
+                </a>
+              </div>
+
+              {/* Stats */}
+              <div className="flex items-center gap-10 mt-16 animate-fade-in delay-400">
+                <div>
+                  <div className="font-cormorant text-3xl font-light text-[#2A2A2A]">1 530</div>
+                  <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] mt-0.5">Abonnées</div>
+                </div>
+                <div className="w-px h-8 bg-[rgba(201,169,110,0.3)]" />
+                <div>
+                  <div className="font-cormorant text-3xl font-light text-[#2A2A2A]">6</div>
+                  <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] mt-0.5">Collections</div>
+                </div>
+                <div className="w-px h-8 bg-[rgba(201,169,110,0.3)]" />
+                <div>
+                  <div className="font-cormorant text-3xl font-light text-[#2A2A2A]">100%</div>
+                  <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] mt-0.5">Exclusif</div>
+                </div>
+              </div>
             </div>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in delay-700">
+            <span className="font-lato text-[9px] tracking-[0.3em] uppercase text-[#7A7A7A]">Défiler</span>
+            <div className="w-px h-12 bg-gradient-to-b from-[#C9A96E] to-transparent" />
           </div>
         </section>
 
-        {/* Collection Section */}
-        <section id="collection" className="container mx-auto px-4 py-24">
+        {/* ── COLLECTION ──────────────────────────────────────── */}
+        <section id="collection" className="max-w-7xl mx-auto px-6 py-28">
+
+          {/* Section header */}
           <div className="text-center mb-20">
-            <h2 className="font-serif text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-600 via-rose-500 to-blue-500 bg-clip-text text-transparent mb-6 tracking-tight">
+            <span className="font-lato text-[10px] tracking-[0.35em] uppercase text-[#C9A96E] mb-5 block">
+              Sélection exclusive
+            </span>
+            <h2 className="font-cormorant text-5xl md:text-6xl font-light text-[#2A2A2A] mb-6">
               Notre Collection
             </h2>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto font-light leading-relaxed">
+            <div className="divider-gold mb-6" />
+            <p className="font-lato text-[#7A7A7A] font-light max-w-xl mx-auto leading-relaxed">
               Des pièces inspirées par la Méditerranée, sélectionnées avec amour
-              pour sublimer votre élégance
+              pour sublimer votre élégance naturelle.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {/* Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
         </section>
 
-        {/* About Section */}
-        <section
-          id="about"
-          className="bg-gradient-to-br from-amber-50 via-rose-50 to-blue-50 py-24"
-        >
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto text-center">
-              <h2 className="font-serif text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-600 via-rose-500 to-blue-500 bg-clip-text text-transparent mb-8 tracking-tight">
-                À propos d'Elloriane
-              </h2>
-              <div className="bg-white/90 backdrop-blur-sm rounded-3xl p-10 md:p-16 shadow-2xl border border-amber-100">
-                <p className="text-gray-700 text-xl leading-relaxed mb-8 font-light">
-                  Née entre les ruelles ensoleillées de Marseille et les
-                  traditions italo-maltaises, Elloriane incarne l'essence même
-                  de l'élégance méditerranéenne.
-                </p>
-                <p className="text-gray-700 text-xl leading-relaxed mb-8 font-light">
-                  Chaque pièce de notre collection raconte une histoire : celle
-                  du soleil couchant sur le Vieux-Port, des marchés colorés de
-                  Sicile, et de l'artisanat ancestral de Malte. Nous
-                  sélectionnons avec soin des créations qui subliment votre
-                  beauté naturelle.
-                </p>
-                <p className="text-gray-700 text-xl leading-relaxed mb-10 font-light">
-                  Rejoignez notre communauté de 1,530 abonnés sur Instagram pour
-                  suivre notre voyage et découvrir nos nouveautés exclusives.
-                </p>
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-                  <a
-                    href="https://instagram.com/elloriane.camazzati"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full hover:from-purple-600 hover:to-pink-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 font-medium text-lg"
-                  >
-                    <Sparkles className="w-5 h-5" />
-                    Suivre sur Instagram
-                  </a>
+        {/* ── BANNER / QUOTE ──────────────────────────────────── */}
+        <section className="bg-[#111111] py-20 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-5"
+            style={{
+              backgroundImage: `url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=1920&q=80')`,
+              backgroundSize: "cover",
+            }}
+          />
+          <div className="h-px bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent mb-12" />
+          <div className="relative max-w-3xl mx-auto px-6 text-center">
+            <div
+              className="font-cormorant text-4xl md:text-5xl font-light italic leading-relaxed mb-6"
+              style={{
+                background: "linear-gradient(135deg, #9A7A45, #C9A96E, #E8D5A3)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              &ldquo;La beauté est un secret que seules les femmes qui osent révèlent.&rdquo;
+            </div>
+            <div className="divider-gold mb-6" />
+            <p className="font-lato text-[10px] tracking-[0.3em] uppercase text-[#555555]">
+              Elloriane Camazzati
+            </p>
+          </div>
+          <div className="h-px bg-gradient-to-r from-transparent via-[#C9A96E] to-transparent mt-12" />
+        </section>
+
+        {/* ── ABOUT ───────────────────────────────────────────── */}
+        <section id="about" className="py-28 bg-[#FAF7F2]">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+              {/* Image side */}
+              <div className="relative">
+                <div className="relative aspect-[3/4] overflow-hidden">
+                  <img
+                    src="/secret.png"
+                    alt="Elloriane"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Gold frame offset */}
+                  <div className="absolute -bottom-4 -right-4 w-full h-full border border-[rgba(201,169,110,0.4)] pointer-events-none" />
                 </div>
+                {/* Badge flottant */}
+                <div
+                  className="absolute -top-6 -left-6 w-24 h-24 bg-[#111111] border border-[rgba(201,169,110,0.4)] flex flex-col items-center justify-center"
+                  style={{ animation: "float 5s ease-in-out infinite" }}
+                >
+                  <span
+                    className="font-cormorant text-3xl font-light"
+                    style={{
+                      background: "linear-gradient(135deg, #9A7A45, #C9A96E)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    E
+                  </span>
+                  <span className="font-lato text-[8px] tracking-[0.15em] uppercase text-[#C9A96E] mt-1">
+                    2024
+                  </span>
+                </div>
+              </div>
+
+              {/* Text side */}
+              <div>
+                <span className="font-lato text-[10px] tracking-[0.35em] uppercase text-[#C9A96E] mb-5 block">
+                  Notre histoire
+                </span>
+                <h2 className="font-cormorant text-5xl md:text-6xl font-light text-[#2A2A2A] mb-4 leading-tight">
+                  À propos<br />
+                  <span className="italic">d&apos;Elloriane</span>
+                </h2>
+                <div className="divider-gold-left mb-8" style={{ background: "linear-gradient(90deg, #C9A96E, transparent)" }} />
+
+                <p className="font-lato text-[#7A7A7A] font-light leading-relaxed mb-6">
+                  Née entre les ruelles ensoleillées de Marseille et les traditions
+                  italo-maltaises, Elloriane incarne l&apos;essence même de l&apos;élégance
+                  méditerranéenne. Une femme, une vision, une marque.
+                </p>
+                <p className="font-lato text-[#7A7A7A] font-light leading-relaxed mb-6">
+                  Chaque pièce de notre collection raconte une histoire : celle du
+                  soleil couchant sur le Vieux-Port, des marchés colorés de Sicile,
+                  et de l&apos;artisanat ancestral de Malte.
+                </p>
+                <p className="font-lato text-[#7A7A7A] font-light leading-relaxed mb-10">
+                  Rejoignez notre communauté de{" "}
+                  <strong className="text-[#C9A96E] font-normal">1 530 abonnées</strong>{" "}
+                  sur Instagram pour suivre notre voyage.
+                </p>
+
+                <a
+                  href="https://instagram.com/elloriane.camazzati"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex"
+                >
+                  Suivre sur Instagram
+                </a>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Premium Features Section */}
-        <section className="container mx-auto px-4 py-24">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-5xl md:text-6xl font-bold bg-gradient-to-r from-amber-600 via-rose-500 to-blue-500 bg-clip-text text-transparent mb-6 tracking-tight">
-              L'Expérience Elloriane
-            </h2>
-            <p className="text-gray-600 text-xl max-w-3xl mx-auto font-light">
-              Des services exclusifs pour une expérience d'achat exceptionnelle
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-amber-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-rose-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Sparkles className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-4">
-                Qualité Premium
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Chaque pièce est sélectionnée pour sa qualité exceptionnelle et
-                son authenticité
-              </p>
+        {/* ── VALEURS ─────────────────────────────────────────── */}
+        <section id="valeurs" className="bg-[#F0EAE0] py-28">
+          <div className="max-w-7xl mx-auto px-6">
+
+            <div className="text-center mb-20">
+              <span className="font-lato text-[10px] tracking-[0.35em] uppercase text-[#C9A96E] mb-5 block">
+                Notre engagement
+              </span>
+              <h2 className="font-cormorant text-5xl md:text-6xl font-light text-[#2A2A2A]">
+                L&apos;Expérience Elloriane
+              </h2>
             </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-amber-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-rose-500 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Sparkles className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-4">
-                Livraison Soignée
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Packaging élégant et livraison rapide pour une expérience
-                mémorable
-              </p>
-            </div>
-            <div className="text-center p-8 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow border border-amber-100">
-              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Sparkles className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="font-serif text-2xl font-semibold text-gray-900 mb-4">
-                Service Personnalisé
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                Conseils personnalisés et accompagnement pour chaque achat
-              </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[rgba(201,169,110,0.2)]">
+              {[
+                {
+                  number: "01",
+                  title: "Qualité Premium",
+                  text: "Chaque pièce est sélectionnée pour sa qualité exceptionnelle et son authenticité méditerranéenne.",
+                },
+                {
+                  number: "02",
+                  title: "Livraison Soignée",
+                  text: "Packaging luxueux et livraison rapide pour une expérience d'unboxing mémorable.",
+                },
+                {
+                  number: "03",
+                  title: "Service Personnalisé",
+                  text: "Conseils personnalisés et accompagnement bienveillant pour chaque achat.",
+                },
+              ].map((item) => (
+                <div
+                  key={item.number}
+                  className="bg-[#F0EAE0] px-10 py-14 group hover:bg-[#111111] transition-colors duration-500"
+                >
+                  <div
+                    className="font-cormorant text-5xl font-light mb-6 transition-all duration-500 group-hover:opacity-80"
+                    style={{
+                      background: "linear-gradient(135deg, #9A7A45, #C9A96E)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    {item.number}
+                  </div>
+                  <h3 className="font-cormorant text-2xl font-light text-[#2A2A2A] mb-4 group-hover:text-[#FAF7F2] transition-colors duration-500">
+                    {item.title}
+                  </h3>
+                  <p className="font-lato text-sm text-[#7A7A7A] font-light leading-relaxed group-hover:text-[#9A9A9A] transition-colors duration-500">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
+
       </main>
       <Footer />
     </div>
