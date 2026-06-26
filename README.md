@@ -137,7 +137,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## 📧 Contact
 
-For questions or support, please contact at contact@eloriane.com
+For questions or support, please contact at elloriane.camazzati@gmail.com
 
 ---
 

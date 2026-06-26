@@ -50,10 +50,10 @@ export async function GET() {
     }
 
     // ── 3. Fallback ─────────────────────────────────────────
-    return NextResponse.json({ count: 1530, source: "fallback" });
+    return NextResponse.json({ count: 1538, source: "fallback" });
 
   } catch (err) {
     console.error("[instagram-followers]", err);
-    return NextResponse.json({ count: 1530, source: "error" }, { status: 200 });
+    return NextResponse.json({ count: 1538, source: "error" }, { status: 200 });
   }
 }

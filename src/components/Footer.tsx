@@ -1,5 +1,6 @@
 import { Instagram, Mail } from "lucide-react";
 import Link from "next/link";
+import InstagramFollowersCount from "@/components/InstagramFollowersCount";
 
 export default function Footer() {
   return (
@@ -107,7 +108,7 @@ export default function Footer() {
                   backgroundClip: "text",
                 }}
               >
-                1 530
+                <InstagramFollowersCount />
               </div>
               <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#7A7A7A]">
                 Abonnées Instagram

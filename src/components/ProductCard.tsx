@@ -13,30 +13,30 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [isLiked, setIsLiked] = useState(false);
   const [added, setAdded] = useState(false);
 
-  const handleAdd = () => {
+  const handleAdd = (e: React.MouseEvent) => {
+    e.preventDefault();
     addItem(product);
     setAdded(true);
-    setTimeout(() => setAdded(false), 1800);
+    setTimeout(() => setAdded(false), 2000);
   };
 
   return (
-    <article className="group relative bg-[#FFFDF9] border border-[rgba(201,169,110,0.15)] overflow-hidden transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] hover:border-[rgba(201,169,110,0.4)]">
-
-      {/* Image */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-[#F0EAE0]">
+    <article className="group flex flex-col gap-4">
+      {/* Image Container */}
+      <div className="relative aspect-[3/4] overflow-hidden bg-cream-dark">
         <img
           src={product.image}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
-
-        {/* Dark overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        
+        {/* Subtle overlay */}
+        <div className="absolute inset-0 bg-velvet/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
         {/* Badge */}
         {product.badge && (
-          <div className="absolute top-4 left-4">
-            <span className="bg-[#111111] text-[#C9A96E] text-[9px] tracking-[0.2em] uppercase font-lato px-3 py-1.5 border border-[rgba(201,169,110,0.4)]">
+          <div className="absolute top-3 left-3">
+            <span className="bg-white/90 backdrop-blur-sm text-velvet text-[10px] tracking-widest uppercase font-lato px-3 py-1">
               {product.badge}
             </span>
           </div>
@@ -44,68 +44,56 @@ export default function ProductCard({ product }: ProductCardProps) {
 
         {/* Wishlist */}
         <button
-          onClick={() => setIsLiked(!isLiked)}
-          className="absolute top-4 right-4 w-9 h-9 bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white"
+          onClick={(e) => { e.preventDefault(); setIsLiked(!isLiked); }}
+          className="absolute top-3 right-3 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:bg-white hover:scale-110"
           aria-label={isLiked ? "Retirer des favoris" : "Ajouter aux favoris"}
         >
           <svg
-            width="16"
-            height="16"
+            width="14"
+            height="14"
             viewBox="0 0 24 24"
             fill={isLiked ? "#C9A96E" : "none"}
-            stroke={isLiked ? "#C9A96E" : "#2A2A2A"}
+            stroke={isLiked ? "#C9A96E" : "#111111"}
             strokeWidth="1.5"
+            className="transition-colors duration-300"
           >
             <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" />
           </svg>
         </button>
 
-        {/* Quick add — appears on hover */}
-        <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-400">
+        {/* Quick add - overlay on image for desktop */}
+        <div className="absolute bottom-4 left-4 right-4 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 hidden md:block">
           <button
             onClick={handleAdd}
-            className="w-full bg-[#111111] text-[#C9A96E] text-[10px] tracking-[0.25em] uppercase font-lato py-4 hover:bg-[#C9A96E] hover:text-[#111111] transition-all duration-300"
+            className="w-full bg-white/95 backdrop-blur-sm text-velvet text-[11px] tracking-widest uppercase font-lato py-3 hover:bg-velvet hover:text-gold transition-colors duration-300"
           >
-            {added ? "✦ Ajouté" : "Ajouter au panier"}
+            {added ? "Ajouté au panier" : "Ajouter au panier"}
           </button>
         </div>
       </div>
 
-      {/* Info */}
-      <div className="p-5">
-        <div className="mb-1">
-          <span className="text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] font-lato">
-            {product.category}
-          </span>
-        </div>
-        <h3 className="font-cormorant text-xl font-light text-[#2A2A2A] mb-1 leading-tight">
+      {/* Info Container */}
+      <div className="flex flex-col items-center text-center px-2">
+        <span className="text-[10px] tracking-widest uppercase text-gold font-lato mb-2">
+          {product.category}
+        </span>
+        <h3 className="font-cormorant text-xl font-medium text-velvet mb-1 leading-tight">
           {product.name}
         </h3>
-        <p className="text-[12px] text-[#7A7A7A] font-lato font-light leading-relaxed mb-4 line-clamp-2">
+        <p className="font-lato text-[13px] text-velvet/60 mb-3 line-clamp-1 px-2">
           {product.description}
         </p>
+        <span className="font-lato text-[15px] tracking-wide text-velvet">
+          {product.price} €
+        </span>
 
-        <div className="flex items-center justify-between">
-          <span
-            className="font-cormorant text-2xl font-light"
-            style={{
-              background: "linear-gradient(135deg, #9A7A45 0%, #C9A96E 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            {product.price}€
-          </span>
-
-          {/* Mobile add button (always visible) */}
-          <button
-            onClick={handleAdd}
-            className="md:hidden flex items-center gap-1.5 text-[10px] tracking-[0.15em] uppercase font-lato text-[#2A2A2A] border border-[rgba(201,169,110,0.4)] px-3 py-2 hover:bg-[#111111] hover:text-[#C9A96E] hover:border-[#C9A96E] transition-all duration-300"
-          >
-            {added ? "✦" : "+"}
-          </button>
-        </div>
+        {/* Mobile add button */}
+        <button
+          onClick={handleAdd}
+          className="md:hidden mt-4 w-full border border-gold/30 text-velvet text-[11px] tracking-widest uppercase font-lato py-2.5 active:bg-gold/10 transition-colors duration-300"
+        >
+          {added ? "Ajouté" : "Ajouter au panier"}
+        </button>
       </div>
     </article>
   );

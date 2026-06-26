@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import ProductCard from "@/components/ProductCard";
 import Footer from "@/components/Footer";
+import InstagramFollowersCount from "@/components/InstagramFollowersCount";
 import { products } from "@/data/products";
 import { ArrowRight } from "lucide-react";
 
@@ -102,7 +103,7 @@ export default function Home() {
               {/* Stats */}
               <div className="flex items-center gap-10 mt-16 animate-fade-in delay-400">
                 <div>
-                  <div className="font-cormorant text-3xl font-light text-[#2A2A2A]">1 530</div>
+                  <div className="font-cormorant text-3xl font-light text-[#2A2A2A]"><InstagramFollowersCount /></div>
                   <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] mt-0.5">Abonnées</div>
                 </div>
                 <div className="w-px h-8 bg-[rgba(201,169,110,0.3)]" />
@@ -242,7 +243,7 @@ export default function Home() {
                 </p>
                 <p className="font-lato text-[#7A7A7A] font-light leading-relaxed mb-10">
                   Rejoignez notre communauté de{" "}
-                  <strong className="text-[#C9A96E] font-normal">1 530 abonnées</strong>{" "}
+                  <strong className="text-[#C9A96E] font-normal"><InstagramFollowersCount /> abonnées</strong>{" "}
                   sur Instagram pour suivre notre voyage.
                 </p>
 
