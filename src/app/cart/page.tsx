@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Minus, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 export default function CartPage() {
@@ -95,11 +96,13 @@ export default function CartPage() {
                 }`}
               >
                 {/* Image */}
-                <div className="w-24 h-24 flex-shrink-0 overflow-hidden bg-[#F0EAE0]">
-                  <img
+                <div className="w-24 h-24 flex-shrink-0 overflow-hidden bg-[#F0EAE0] relative">
+                  <Image
                     src={item.image}
                     alt={item.name}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="96px"
                   />
                 </div>
 

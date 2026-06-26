@@ -56,6 +56,7 @@ export default function Footer() {
                 { href: "/#collection", label: "Collection" },
                 { href: "/#about", label: "Notre histoire" },
                 { href: "/cart", label: "Mon panier" },
+                { href: "/contact", label: "Contact" },
               ].map((item) => (
                 <li key={item.href}>
                   <Link
@@ -122,9 +123,21 @@ export default function Footer() {
           <p className="font-lato text-[11px] tracking-widest text-[#555555] uppercase">
             © 2026 Les Secrets d&apos;Elloriane — Marseille, France
           </p>
-          <p className="font-lato text-[11px] tracking-widest text-[#555555] uppercase">
-            Fait avec amour ✦ Livraison mondiale
-          </p>
+          <div className="flex items-center gap-6 flex-wrap justify-center">
+            {[
+              { href: "/mentions-legales", label: "Mentions légales" },
+              { href: "/cgv", label: "CGV" },
+              { href: "/politique-de-retour", label: "Retours" },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="font-lato text-[10px] tracking-widest uppercase text-[#555555] hover:text-[#C9A96E] transition-colors duration-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

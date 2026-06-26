@@ -9,12 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "lucide-react": "^0.400.0",
     "next": "14.2.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "resend": "^6.14.0",
     "stripe": "^15.8.0",
-    "zustand": "^4.5.4",
-    "lucide-react": "^0.400.0"
+    "zustand": "^4.5.4"
   },
   "devDependencies": {
     "@types/node": "^20",

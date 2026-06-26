@@ -1,9 +1,16 @@
+import type { Metadata } from "next";
 import Header from "@/components/Header";
-import ProductCard from "@/components/ProductCard";
+import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
 import InstagramFollowersCount from "@/components/InstagramFollowersCount";
-import { products } from "@/data/products";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Boutique — Collection Exclusive",
+  description:
+    "Découvrez notre collection exclusive de bijoux, lingerie et accessoires de luxe inspirés de la Méditerranée.",
+};
 
 export default function Home() {
   return (
@@ -145,12 +152,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+          <ProductGrid />
         </section>
 
         {/* ── BANNER / QUOTE ──────────────────────────────────── */}
@@ -190,10 +192,12 @@ export default function Home() {
               {/* Image side */}
               <div className="relative">
                 <div className="relative aspect-[3/4] overflow-hidden">
-                  <img
+                  <Image
                     src="/secret.png"
-                    alt="Elloriane"
-                    className="w-full h-full object-cover"
+                    alt="Elloriane Camazzati"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                   />
                   {/* Gold frame offset */}
                   <div className="absolute -bottom-4 -right-4 w-full h-full border border-[rgba(201,169,110,0.4)] pointer-events-none" />
@@ -257,6 +261,63 @@ export default function Home() {
                 </a>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* ── AVIS CLIENTS ────────────────────────────────────── */}
+        <section className="max-w-7xl mx-auto px-6 py-28">
+          <div className="text-center mb-20">
+            <span className="font-lato text-[10px] tracking-[0.35em] uppercase text-[#C9A96E] mb-5 block">
+              Elles nous font confiance
+            </span>
+            <h2 className="font-cormorant text-5xl md:text-6xl font-light text-[#2A2A2A] mb-6">
+              Avis Clients
+            </h2>
+            <div className="divider-gold" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Sophia M.",
+                location: "Paris",
+                text: "Le collier Éclat Méditerranéen est absolument magnifique. La qualité est exceptionnelle et le packaging encore plus beau en vrai. Je recommande les yeux fermés.",
+                stars: 5,
+              },
+              {
+                name: "Camille R.",
+                location: "Lyon",
+                text: "J'ai commandé l'ensemble dentelle pour offrir à mon anniversaire. Livraison ultra rapide et le produit est encore plus beau en vrai. Elloriane c'est la classe à l'état pur.",
+                stars: 5,
+              },
+              {
+                name: "Inès B.",
+                location: "Marseille",
+                text: "Ma troisième commande et toujours aussi satisfaite. Le bracelet Croix de Malte est sublime. On sent vraiment la sélection soignée derrière chaque pièce.",
+                stars: 5,
+              },
+            ].map((review) => (
+              <div
+                key={review.name}
+                className="bg-[#FFFDF9] border border-[rgba(201,169,110,0.2)] p-8 flex flex-col"
+              >
+                {/* Étoiles */}
+                <div className="flex gap-1 mb-6">
+                  {Array.from({ length: review.stars }).map((_, i) => (
+                    <span key={i} className="text-[#C9A96E] text-sm">✦</span>
+                  ))}
+                </div>
+
+                <p className="font-lato text-[13px] text-[#7A7A7A] font-light leading-relaxed flex-1 mb-6 italic">
+                  &ldquo;{review.text}&rdquo;
+                </p>
+
+                <div className="border-t border-[rgba(201,169,110,0.15)] pt-5">
+                  <p className="font-cormorant text-lg font-light text-[#2A2A2A]">{review.name}</p>
+                  <p className="font-lato text-[10px] tracking-[0.2em] uppercase text-[#C9A96E]">{review.location}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
