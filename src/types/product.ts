@@ -6,6 +6,7 @@ export interface Product {
   image: string;
   category: string;
   badge?: string;
+  stock?: number;
 }
 
 export interface CartItem extends Product {

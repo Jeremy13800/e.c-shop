@@ -7,24 +7,31 @@ import { Minus, Plus, Trash2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { formatPrice } from "@/lib/format";
 
 export default function CartPage() {
   const { items, updateQuantity, removeItem, getTotal, clearCart } = useCart();
   const total = getTotal();
   const [isLoading, setIsLoading] = useState(false);
+  const [checkoutError, setCheckoutError] = useState<string | null>(null);
 
   const handleCheckout = async () => {
     setIsLoading(true);
+    setCheckoutError(null);
     try {
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
+        body: JSON.stringify({ items: items.map((i) => ({ id: i.id, quantity: i.quantity })) }),
       });
-      const { url } = await response.json();
-      if (url) window.location.href = url;
-    } catch (error) {
-      console.error("Erreur checkout:", error);
+      const data = await response.json();
+      if (!response.ok) {
+        setCheckoutError(data.error ?? "Une erreur est survenue.");
+        return;
+      }
+      if (data.url) window.location.href = data.url;
+    } catch {
+      setCheckoutError("Une erreur est survenue. Veuillez réessayer.");
     } finally {
       setIsLoading(false);
     }
@@ -146,7 +153,7 @@ export default function CartPage() {
                       backgroundClip: "text",
                     }}
                   >
-                    {item.price * item.quantity}€
+                    {formatPrice(item.price * item.quantity)}
                   </span>
                   <button
                     onClick={() => removeItem(item.id)}
@@ -181,7 +188,7 @@ export default function CartPage() {
               <div className="space-y-5 mb-8">
                 <div className="flex justify-between font-lato text-sm text-[#7A7A7A]">
                   <span>Sous-total</span>
-                  <span>{total}€</span>
+                  <span>{formatPrice(total)}</span>
                 </div>
                 <div className="flex justify-between font-lato text-sm text-[#7A7A7A]">
                   <span>Livraison</span>
@@ -205,10 +212,16 @@ export default function CartPage() {
                       backgroundClip: "text",
                     }}
                   >
-                    {total}€
+                    {formatPrice(total)}
                   </span>
                 </div>
               </div>
+
+              {checkoutError && (
+                <p className="font-lato text-[11px] text-[#C8768A] mb-4 text-center leading-relaxed">
+                  {checkoutError}
+                </p>
+              )}
 
               <button
                 onClick={handleCheckout}

@@ -10,6 +10,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=500&h=500&fit=crop",
     category: "bijoux",
     badge: "Best-seller",
+    stock: 12,
   },
   {
     id: "2",
@@ -20,6 +21,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&h=500&fit=crop",
     category: "bijoux",
     badge: "Édition Limitée",
+    stock: 3,
   },
   {
     id: "3",
@@ -30,6 +32,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=500&h=500&fit=crop",
     category: "vetements",
     badge: "Exclusif",
+    stock: 5,
   },
   {
     id: "4",
@@ -40,6 +43,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?w=500&h=500&fit=crop",
     category: "lingerie",
     badge: "Nouveau",
+    stock: 8,
   },
   {
     id: "5",
@@ -50,6 +54,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&h=500&fit=crop",
     category: "parfums",
     badge: "Signature",
+    stock: 0,
   },
   {
     id: "6",
@@ -60,5 +65,6 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=500&h=500&fit=crop",
     category: "accessoires",
     badge: "Pièce Unique",
+    stock: 1,
   },
 ];

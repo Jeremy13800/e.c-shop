@@ -1,6 +1,5 @@
 import { Instagram, Mail } from "lucide-react";
 import Link from "next/link";
-import InstagramFollowersCount from "@/components/InstagramFollowersCount";
 
 export default function Footer() {
   return (
@@ -98,23 +97,6 @@ export default function Footer() {
               </a>
             </div>
 
-            {/* Instagram followers */}
-            <div className="mt-6 inline-block border border-[rgba(201,169,110,0.3)] px-4 py-2 text-right md:ml-auto">
-              <div
-                className="font-cormorant text-2xl font-light"
-                style={{
-                  background: "linear-gradient(135deg, #9A7A45, #C9A96E)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
-              >
-                <InstagramFollowersCount />
-              </div>
-              <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#7A7A7A]">
-                Abonnées Instagram
-              </div>
-            </div>
           </div>
         </div>
 

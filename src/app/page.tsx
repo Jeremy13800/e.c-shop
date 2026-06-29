@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Header from "@/components/Header";
 import ProductGrid from "@/components/ProductGrid";
 import Footer from "@/components/Footer";
-import InstagramFollowersCount from "@/components/InstagramFollowersCount";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 
@@ -110,11 +109,6 @@ export default function Home() {
               {/* Stats */}
               <div className="flex items-center gap-10 mt-16 animate-fade-in delay-400">
                 <div>
-                  <div className="font-cormorant text-3xl font-light text-[#2A2A2A]"><InstagramFollowersCount /></div>
-                  <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] mt-0.5">Abonnées</div>
-                </div>
-                <div className="w-px h-8 bg-[rgba(201,169,110,0.3)]" />
-                <div>
                   <div className="font-cormorant text-3xl font-light text-[#2A2A2A]">6</div>
                   <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] mt-0.5">Collections</div>
                 </div>
@@ -122,6 +116,11 @@ export default function Home() {
                 <div>
                   <div className="font-cormorant text-3xl font-light text-[#2A2A2A]">100%</div>
                   <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] mt-0.5">Exclusif</div>
+                </div>
+                <div className="w-px h-8 bg-[rgba(201,169,110,0.3)]" />
+                <div>
+                  <div className="font-cormorant text-3xl font-light text-[#2A2A2A]">2024</div>
+                  <div className="font-lato text-[9px] tracking-[0.2em] uppercase text-[#C9A96E] mt-0.5">Depuis</div>
                 </div>
               </div>
             </div>
@@ -246,9 +245,8 @@ export default function Home() {
                   et de l&apos;artisanat ancestral de Malte.
                 </p>
                 <p className="font-lato text-[#7A7A7A] font-light leading-relaxed mb-10">
-                  Rejoignez notre communauté de{" "}
-                  <strong className="text-[#C9A96E] font-normal"><InstagramFollowersCount /> abonnées</strong>{" "}
-                  sur Instagram pour suivre notre voyage.
+                  Rejoignez notre communauté sur Instagram pour suivre notre voyage
+                  et découvrir les coulisses de la collection.
                 </p>
 
                 <a
